@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  
+  <title>Frontend Mentor | Time tracking dashboard</title>
+<style>
+
+html{
+  font-size: 18px;
+  /* color: hsl(226, 43%, 10%)
+;
+  color: hsl(235, 46%, 20%)
+;
+  color: hsl(235, 45%, 61%)
+;
+  color: hsl(236, 100%, 87%); */
+}
+
+  body{
+    font-family: sans-serif;
+    height: 100vh;
+    background-color: hsl(226, 43%, 10%);
+    /* padding: 50px; */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    padding-top: 100px;
+  }
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows:auto auto;
+    gap: 20px;
+    column-gap: 20px;
+    margin-bottom: 200px;
+    width: 90%;
+    margin: 20px auto;
+    /* margin: 30px 30px; */
+   
+  }
+  .time{
+    width: 100%;
+    /* min-width: 150px; */
+    border-radius: 10px;
+    /* background-color: darkblue; */
+/* padding: 20px; */
+  }
+  .time img{
+    width: 100%;
+  }
+  .work,.play,.social,.exercise,.study,.self-care{
+    /* background-color: darkblue; */
+    color: #fff;
+    border-radius: 10px;
+    /* padding: 10px; */
+  }
+  .top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+  }
+  .time h3{
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 0 7px;
+  }
+  .time .cont-menu{
+    display: flex;
+    align-items: center;
+  }
+  .menu{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-left: 1px;
+  }
+  .time h2{
+    font-size: 35px;
+    font-weight: 300;
+  margin: 14px 0 10px;
+  padding:0 7px;
+  }
+  .time .small{
+    font-size: 14px;
+    color: #777;
+    margin: 7px 0 10px;
+    padding: 0 7px;
+  }
+
+  /* User style */
+  .user{
+    width: 100%;
+    /* padding: 10px; */
+background-color: #2196f3;
+grid-row: 1 / -1;
+  }
+  .user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* padding: 15px; */
+    border: 2px solid #fff;
+  }
+  .image{
+    padding: 10px;
+  }
+  .user-det{
+    /* margin: 10px 0; */
+    padding: 10px;
+  }
+  .user-det span{
+    font-size: 14px;
+    color: #ece0e0;
+    font-weight: 300;
+  }
+  .user-det h1{
+    width: 50%;
+    line-height: 1.6;
+    font-size: 30px;
+    font-weight: 300;
+    color: #fff;
+  }
+  .format{
+    background-color: #00080e;
+    padding: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: 1.9;
+    /* margin-top: -30px; */
+    }
+    .format div{
+      font-weight: 500;
+    }
+    .format div:nth-child(2){
+      color: hsl(236, 100%, 87%);
+    }
+
+    /* time-image--1 styles */
+    .time [class="time-image--"]{
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+    }
+    
+
+
+
+
+
+    .time-image--1{
+      background-image:linear-gradient(45deg, hsl(15, 100%, 70%), transparent), url(/images/icon-work.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    .time-image--2{
+      background-image:linear-gradient(45deg, hsl(195, 74%, 62%), transparent), url(/images/icon-play.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    .time-image--3{
+      background-image:linear-gradient(45deg, hsl(348, 100%, 68%), transparent), url(/images/icon-study.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    
+
+
+
+
+    .time-image--4{
+      background-image: linear-gradient(45deg, hsl(145, 58%, 55%), transparent), url(/images/icon-exercise.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    .time-image--5{
+      background-image:linear-gradient(45deg, hsl(264, 64%, 52%), transparent), url(/images/icon-social.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    .time-image--6{
+      background-image: linear-gradient(45deg, hsl(43, 84%, 65%), transparent), url(/images/icon-self-care.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+    }
+    .content{
+      background-color: hsl(235, 46%, 20%);
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin-top: -10px;
+    }
+    .second{
+      color: hsl(236, 100%, 87%);
+    }
+    @media only screen and (max-width:1440px) {
+
+    }
+
+
+    @media only screen and (max-width:375px) {
+      .grid-container{
+        grid-template-columns: 1fr;
+      }
+      .user-content{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .user-det{
+        padding: 0;
+      }
+      .user-det h1{
+        line-height: 1;
+        margin: 0;
+        font-size: 20px;
+        width: 100%;
+      }
+      .user-det span{
+        font-size: 14px;
+        color: hsl(236, 100%, 87%);
+      }
+      .format{
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+</style>
+</head>
+<body>
+
+    <div class="grid-container">
+      <div class="time user">
+        <div class="user-content">
+          <div class="image">
+          <img src="/images/image-jeremy.png" alt="jeremy-image">
+        </div>
+        <div class="user-det">
+          <span>Report For</span>
+          <h1>Jeremy Robson</h1>
+        </div>
+        </div>
+        
+        <div class="format">
+          <div>Daily</div>
+          <div class="second">Weekly</div>
+          <div>Monthly</div>
+        </div>
+      </div>
+      <div class="time work">
+        <div class="time-image--1">
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>work</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>32hrs</h2>
+          <span class="small">Last Week - 36hrs</span>
+        </div>
+        
+      </div>
+      <div class="time play">
+        <div class="time-image--2">
+          
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>Play</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>10hrs</h2>
+          <span class="small">Last Week - 8hrs</span>
+        </div>
+        
+      </div>
+      <div class="time study">
+        <div class="time-image--3">
+          
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>Study</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>4hrs</h2>
+          <span class="small">Last Week - 7hrs</span>
+        </div>
+        
+      </div>
+      <div class="time exercise">
+        <div class="time-image--4">
+          
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>Exercise</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>4hrs</h2>
+          <span class="small">Last Week - 5hrs</span>
+        </div>
+        
+      </div>
+      <div class="time social">
+        <div class="time-image--5">
+          
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>Social</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>5hrs</h2>
+          <span class="small">Last Week - 10hrs</span>
+        </div>
+        
+      </div>
+      <div class="time self-care">
+        <div class="time-image--6">
+          
+        </div>
+        <div class="content">
+          <div class="top">
+            <h3>Social</h3>
+            <div class="cont-menu">
+              <span class="menu"></span>
+              <span class="menu"></span>
+              <span class="menu"></span>
+            </div>
+          </div>
+          <h2>2hrs</h2>
+          <span class="small">Last Week - 2hrs</span>
+        </div>
+        
+      </div>
+    </div>
+
+  
+  
+</body>
+</html>
