@@ -59,6 +59,15 @@ html{
     border-radius: 10px;
     /* padding: 10px; */
   }
+  .bg{
+    background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+      height: 50px;
+      border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 3px;
+  }
   .top{
     display: flex;
     align-items: center;
@@ -132,13 +141,12 @@ grid-row: 1 / -1;
     padding: 30px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-  
+  color: hsl(195, 74%, 62%);
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     justify-content: flex-start;
     line-height: 1.9;
-    color:gray;
     /* margin-top: -30px; */
     }
     .format div{
@@ -237,19 +245,33 @@ grid-row: 1 / -1;
     .second{
       color: hsl(236, 100%, 87%);
     }
-    @media only screen and (max-width:1440px) {
-
-    }
-
-
-    @media only screen and (max-width:375px) {
+    @media only screen and (max-width:900px) {
       .grid-container{
-        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
       }
       .user-content{
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+        padding: 20px;
+      }
+      .user{
+        grid-area:1/1/3/2 ;
+      }
+      .work{
+        grid-area:1/2/2/-1 ;
+      }
+      .play{
+        grid-area:2/2/2/-1 ;
+      }
+      .study{
+        grid-area:3/1/4/2 ;
+      }
+      .self-care{
+        grid-area:3/2/4/-1 ;
+      }
+      .exercise{
+        grid-area:4/1/5/-1 ;
+      }
+      .social{
+        grid-area:5/1/6/-1 ;
       }
       .user-det{
         padding: 0;
@@ -269,6 +291,46 @@ grid-row: 1 / -1;
         justify-content: space-between;
       }
     }
+    @media only screen and (max-width:500px) {
+      .grid-container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
+      }
+      .user-content{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+      }
+      .user{
+        grid-area:1/1/2/-1 ;
+      }
+      .work{
+        grid-area:2/1/3/-1 ;
+      }
+      .play{
+        grid-area:3/1/4/-1 ;
+      }
+      .study{
+        grid-area:4/1/5/-1 ;
+      }
+      .self-care{
+        grid-area:5/1/6/-1 ;
+      }
+      .exercise{
+        grid-area:6/1/7/-1 ;
+      }
+      .social{
+        grid-area:7/1/span 2/-1 ;
+      }
+    }
+
+
+    @media only screen and (max-width:375px) {
+      .grid-container{
+        grid-template-columns: 1fr;
+      }
+    }
+    
 </style>
 </head>
 <body>
